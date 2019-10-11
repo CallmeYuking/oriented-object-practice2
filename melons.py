@@ -30,45 +30,14 @@ class DomesticMelonOrder(AbstractMelonOrder):
     def __init__(self, species, qty):
         """Initialize melon order attributes."""
         super().__init__(species, qty, 'domestic', 0.08, False)
-        
-        # self.order_type = "domestic"
-        # self.tax = 0.08
-
-
-    # def get_total(self):
-    #     """Calculate price, including tax."""
-
-    #     base_price = 5
-    #     total = (1 + self.tax) * self.qty * base_price
-
-    #     return total
-
-    # def mark_shipped(self):
-    #     """Record the fact than an order has been shipped."""
-
-    #     self.shipped = True
 
 class InternationalMelonOrder(AbstractMelonOrder):
     """An international (non-US) melon order."""
 
-    def __init__(self, country_code):
-        """Initialize melon order attributes."""
+    def __init__(self, species, qty, country_code):
         self.country_code = country_code
-        self.order_type = "international"
-        self.tax = 0.17
-
-    # def get_total(self):
-    #     """Calculate price, including tax."""
-
-    #     base_price = 5
-    #     total = (1 + self.tax) * self.qty * base_price
-
-    #     return total
-
-    # def mark_shipped(self):
-    #     """Record the fact than an order has been shipped."""
-
-    #     self.shipped = True
+        super().__init__(species, qty, "international", 0.17, False)
+        """Initialize melon order attributes."""
 
     def get_country_code(self):
         """Return the country code."""
